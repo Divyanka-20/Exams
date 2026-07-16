@@ -1,5 +1,241 @@
-# Exams
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Calculator</title>
+    </head>
+    <body>
+    
+    <h2>Simple Calculator</h2>
+    
+    <form action="CalculatorServlet" method="post">
+    
+    First Number:
+    <input type="number" name="num1"><br><br>
+    
+    Second Number:
+    <input type="number" name="num2"><br><br>
+    
+    <input type="submit" value="Add">
+    
+    </form>
+    
+    </body>
+    </html>
 
+
+    package com.calc;
+    
+    import java.io.*;
+    import jakarta.servlet.*;
+    import jakarta.servlet.http.*;
+    
+    public class CalculatorServlet extends HttpServlet{
+    
+        protected void doPost(HttpServletRequest request,HttpServletResponse response)
+        throws ServletException,IOException{
+    
+            response.setContentType("text/html");
+    
+            PrintWriter out=response.getWriter();
+    
+            int a=Integer.parseInt(request.getParameter("num1"));
+            int b=Integer.parseInt(request.getParameter("num2"));
+    
+            int sum=a+b;
+    
+            out.println("<h2>Result = "+sum+"</h2>");
+        }
+    }
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    
+    <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    version="5.0">
+    
+    <servlet>
+    <servlet-name>CalculatorServlet</servlet-name>
+    <servlet-class>com.calc.CalculatorServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+    <servlet-name>CalculatorServlet</servlet-name>
+    <url-pattern>/CalculatorServlet</url-pattern>
+    </servlet-mapping>
+    
+    </web-app>
+
+<br>
+
+    import java.sql.*;
+    
+    public class CRUD {
+    
+        public static void main(String args[]) {
+    
+            String url="jdbc:mysql://localhost:3306/studentdb";
+            String user="root";
+            String password="root";
+    
+            try{
+    
+                Class.forName("com.mysql.cj.jdbc.Driver");
+    
+                Connection con=DriverManager.getConnection(url,user,password);
+    
+                Statement stmt=con.createStatement();
+    
+                stmt.executeUpdate("INSERT INTO students(name,age) VALUES('John',20)");
+                System.out.println("Inserted");
+    
+                ResultSet rs=stmt.executeQuery("SELECT * FROM students");
+    
+                while(rs.next()){
+                    System.out.println(rs.getInt("id")+" "
+                    +rs.getString("name")+" "
+                    +rs.getInt("age"));
+                }
+    
+                stmt.executeUpdate("UPDATE students SET age=22 WHERE name='John'");
+                System.out.println("Updated");
+    
+                stmt.executeUpdate("DELETE FROM students WHERE name='John'");
+                System.out.println("Deleted");
+    
+                con.close();
+    
+            }
+    
+            catch(Exception e){
+                System.out.println(e);
+            }
+    
+        }
+    }
+
+    CREATE DATABASE studentdb;
+
+    USE studentdb;
+    
+    CREATE TABLE students(
+    
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    
+    name VARCHAR(50),
+    
+    age INT
+    
+    );
+
+
+    <!DOCTYPE html>
+<html>
+<head>
+
+<title>Student Registration Form</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin: 30px;
+}
+
+input, select{
+    margin: 5px;
+    padding: 5px;
+}
+
+button{
+    padding: 5px 10px;
+}
+
+#result{
+    margin-top: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+</style>
+
+<script>
+
+function validateForm(){
+
+    var name=document.getElementById("name").value.trim();
+    var roll=document.getElementById("roll").value.trim();
+    var dept=document.getElementById("dept").value;
+    var email=document.getElementById("email").value.trim();
+
+    if(name==""){
+        alert("Please enter Name");
+        return false;
+    }
+
+    if(roll==""){
+        alert("Please enter Roll Number");
+        return false;
+    }
+
+    if(dept==""){
+        alert("Please select Department");
+        return false;
+    }
+
+    if(email==""){
+        alert("Please enter Email");
+        return false;
+    }
+
+    document.getElementById("result").innerHTML=
+    "<h3>Entered Details</h3>"+
+    "<b>Name :</b> "+name+"<br><br>"+
+    "<b>Roll Number :</b> "+roll+"<br><br>"+
+    "<b>Department :</b> "+dept+"<br><br>"+
+    "<b>Email :</b> "+email;
+
+    return false;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+<label>Name</label>
+<input type="text" id="name">
+
+<label>Roll Number</label>
+<input type="text" id="roll">
+
+<label>Department</label>
+
+<select id="dept">
+<option value="">--Select Department--</option>
+<option>BCA</option>
+<option>BBA</option>
+<option>B.Tech</option>
+<option>MCA</option>
+</select>
+
+<label>Email</label>
+<input type="email" id="email">
+
+<button type="submit">Submit</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+</body>
+</html>
 1.JDBC Connection
   
     package com.example;
