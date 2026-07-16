@@ -127,115 +127,115 @@
     );
 
 
-    <!DOCTYPE html>
-<html>
-<head>
-
-<title>Student Registration Form</title>
-
-<style>
-body{
-    font-family: Arial;
-    margin: 30px;
-}
-
-input, select{
-    margin: 5px;
-    padding: 5px;
-}
-
-button{
-    padding: 5px 10px;
-}
-
-#result{
-    margin-top: 20px;
-    border: 1px solid black;
-    padding: 10px;
-}
-</style>
-
-<script>
-
-function validateForm(){
-
-    var name=document.getElementById("name").value.trim();
-    var roll=document.getElementById("roll").value.trim();
-    var dept=document.getElementById("dept").value;
-    var email=document.getElementById("email").value.trim();
-
-    if(name==""){
-        alert("Please enter Name");
-        return false;
-    }
-
-    if(roll==""){
-        alert("Please enter Roll Number");
-        return false;
-    }
-
-    if(dept==""){
-        alert("Please select Department");
-        return false;
-    }
-
-    if(email==""){
-        alert("Please enter Email");
-        return false;
-    }
-
-    document.getElementById("result").innerHTML=
-    "<h3>Entered Details</h3>"+
-    "<b>Name :</b> "+name+"<br><br>"+
-    "<b>Roll Number :</b> "+roll+"<br><br>"+
-    "<b>Department :</b> "+dept+"<br><br>"+
-    "<b>Email :</b> "+email;
-
-    return false;
-
-}
-
-</script>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>Student Registration Form</h2>
-
-<form onsubmit="return validateForm()">
-
-<label>Name</label>
-<input type="text" id="name">
-
-<label>Roll Number</label>
-<input type="text" id="roll">
-
-<label>Department</label>
-
-<select id="dept">
-<option value="">--Select Department--</option>
-<option>BCA</option>
-<option>BBA</option>
-<option>B.Tech</option>
-<option>MCA</option>
-</select>
-
-<label>Email</label>
-<input type="email" id="email">
-
-<button type="submit">Submit</button>
-
-</form>
-
-<div id="result"></div>
-
-</div>
-
-</body>
-</html>
+            <!DOCTYPE html>
+        <html>
+        <head>
+        
+        <title>Student Registration Form</title>
+        
+        <style>
+        body{
+            font-family: Arial;
+            margin: 30px;
+        }
+        
+        input, select{
+            margin: 5px;
+            padding: 5px;
+        }
+        
+        button{
+            padding: 5px 10px;
+        }
+        
+        #result{
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        </style>
+        
+        <script>
+        
+        function validateForm(){
+        
+            var name=document.getElementById("name").value.trim();
+            var roll=document.getElementById("roll").value.trim();
+            var dept=document.getElementById("dept").value;
+            var email=document.getElementById("email").value.trim();
+        
+            if(name==""){
+                alert("Please enter Name");
+                return false;
+            }
+        
+            if(roll==""){
+                alert("Please enter Roll Number");
+                return false;
+            }
+        
+            if(dept==""){
+                alert("Please select Department");
+                return false;
+            }
+        
+            if(email==""){
+                alert("Please enter Email");
+                return false;
+            }
+        
+            document.getElementById("result").innerHTML=
+            "<h3>Entered Details</h3>"+
+            "<b>Name :</b> "+name+"<br><br>"+
+            "<b>Roll Number :</b> "+roll+"<br><br>"+
+            "<b>Department :</b> "+dept+"<br><br>"+
+            "<b>Email :</b> "+email;
+        
+            return false;
+        
+        }
+        
+        </script>
+        
+        </head>
+        
+        <body>
+        
+        <div class="container">
+        
+        <h2>Student Registration Form</h2>
+        
+        <form onsubmit="return validateForm()">
+        
+        <label>Name</label>
+        <input type="text" id="name">
+        
+        <label>Roll Number</label>
+        <input type="text" id="roll">
+        
+        <label>Department</label>
+        
+        <select id="dept">
+        <option value="">--Select Department--</option>
+        <option>BCA</option>
+        <option>BBA</option>
+        <option>B.Tech</option>
+        <option>MCA</option>
+        </select>
+        
+        <label>Email</label>
+        <input type="email" id="email">
+        
+        <button type="submit">Submit</button>
+        
+        </form>
+        
+        <div id="result"></div>
+        
+        </div>
+        
+        </body>
+        </html>
 1.JDBC Connection
   
     package com.example;
