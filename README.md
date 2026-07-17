@@ -1,3 +1,52 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Simple Calculator</title>
+    </head>
+    <body>
+    
+    <h2>Add Two Numbers</h2>
+    
+    <form action="CalculatorServlet" method="post">
+        Number 1:
+        <input type="text" name="num1"><br><br>
+    
+        Number 2:
+        <input type="text" name="num2"><br><br>
+    
+        <input type="submit" value="Add">
+    </form>
+    
+    </body>
+    </html>
+    import java.io.*;
+    import jakarta.servlet.*;
+    import jakarta.servlet.http.*;
+    import jakarta.servlet.annotation.WebServlet;
+    
+    @WebServlet("/CalculatorServlet")
+    public class CalculatorServlet extends HttpServlet {
+    
+        protected void doPost(HttpServletRequest request,
+                              HttpServletResponse response)
+                throws ServletException, IOException {
+    
+            response.setContentType("text/html");
+    
+            PrintWriter out = response.getWriter();
+    
+            int n1 = Integer.parseInt(request.getParameter("num1"));
+            int n2 = Integer.parseInt(request.getParameter("num2"));
+    
+            int sum = n1 + n2;
+    
+            out.println("<html><body>");
+            out.println("<h2>Addition = " + sum + "</h2>");
+            out.println("</body></html>");
+        }
+    }
+
+
     import java.sql.Connection;
     import java.sql.DriverManager;
     import java.sql.ResultSet;
@@ -82,6 +131,118 @@
             System.out.println("------------------------------------------------");
         }
     }
+
+        <!DOCTYPE html>
+    <html>
+    
+    <head>
+    
+    <title>Student Registration</title>
+    
+    <style>
+    
+    body{
+    font-family:Arial;
+    background:#f2f2f2;
+    }
+    
+    .container{
+    width:350px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    margin-top:50px;
+    border-radius:10px;
+    }
+    
+    input{
+    width:100%;
+    padding:8px;
+    margin:8px 0;
+    }
+    
+    button{
+    padding:10px;
+    width:100%;
+    background:blue;
+    color:white;
+    border:none;
+    }
+    
+    #result{
+    margin-top:20px;
+    }
+    
+    </style>
+    
+    </head>
+    
+    <body>
+    
+    <div class="container">
+    
+    <h2>Student Registration</h2>
+    
+    <form onsubmit="return validateForm()">
+    
+    Name
+    
+    <input type="text" id="name">
+    
+    Roll Number
+    
+    <input type="text" id="roll">
+    
+    Department
+    
+    <input type="text" id="dept">
+    
+    Email
+    
+    <input type="email" id="email">
+    
+    <button type="submit">Submit</button>
+    
+    </form>
+    
+    <div id="result"></div>
+    
+    </div>
+    
+    <script>
+    
+    function validateForm()
+    {
+    
+    var name=document.getElementById("name").value;
+    var roll=document.getElementById("roll").value;
+    var dept=document.getElementById("dept").value;
+    var email=document.getElementById("email").value;
+    
+    if(name=="" || roll=="" || dept=="" || email=="")
+    {
+    alert("All fields are required");
+    return false;
+    }
+    
+    document.getElementById("result").innerHTML=
+    
+    "<h3>Entered Details</h3>"+
+    "Name : "+name+"<br>"+
+    "Roll Number : "+roll+"<br>"+
+    "Department : "+dept+"<br>"+
+    "Email : "+email;
+    
+    return false;
+    
+    }
+    
+    </script>
+    
+    </body>
+    
+    </html>
+
     
     <!DOCTYPE html>
     <html>
